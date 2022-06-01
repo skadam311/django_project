@@ -1,0 +1,37 @@
+{%extends "index.html" %}
+{%block index%}
+<script type="text/javascript">
+    function checkPassword()
+    {
+        var pwd =document.getElementById("pwd").value;
+        var pwd1 =document.getElementById("pwd1").value;
+        if(pwd != pwd1)
+    {
+        alert("password mismatch");
+        return;
+    }
+    else
+    {
+        myform.submit();
+    }
+}
+</script>
+<div class="container">    
+    <form method="post" name="myform">
+        {%csrf_token%}
+        <table class="table">
+            
+            <tr><td>Enter Login Id</td>
+                <td><input type="text" name="uname" class="form-control"/></td></tr>
+            <tr><td>Enter Password</td>
+                    <td><input type="text" name="pwd"  class="form-control" id="pwd" required></tr>
+            <tr><td>Re-Enter Password</td>
+                    <td><input type="text" name="pwd1"  class="form-control" id="pwd1" onblur="checkPassword();" required/></td></tr>
+            <tr>
+                <td><button class="button btn-primary" type="submit">Sign Up</button></td>
+            </tr>
+        </table>
+    </form>
+  </div><br>
+  
+{%endblock%}

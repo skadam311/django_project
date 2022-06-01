@@ -1,0 +1,24 @@
+{%extends "index.html"%}
+{%block index%}
+<div class="container">    
+   
+       
+        <table class="table">
+            <tr><th>Event Id</th><th>Event Name</th><th>Ticket Amount</th><th>person</th><th>sub-total</tr>
+            {%for tkt in booked_tickets%}
+            <tr>
+            <td>{{tkt.event_id}}</td>
+            <td>{{tkt.event.Event_name}}</td>
+            <td>{{tkt.event.ticekt_amount}}</td> 
+            <td>{{tkt.person}}</td> 
+            <td>{% widthratio tkt.event.ticekt_amount 1 tkt.person%} </td></tr>
+    
+            {%endfor%}
+        </table>
+    <hr/>
+    <h2>Total :{{request.session.total}}</h2>
+
+    </form>
+  </div><br>
+  
+{%endblock%}

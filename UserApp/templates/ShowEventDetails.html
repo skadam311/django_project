@@ -1,0 +1,43 @@
+{%extends "index.html"%}
+
+{%block index%}
+<div class="container"> 
+  <form method="post">
+    {%csrf_token%}   
+        <center>
+    <div class="row">
+         
+      <div class="col-sm-8">
+           
+              <div class="panel panel-primary">
+                <div class="panel-heading">{{event.Event_name}}</div>
+                <div class="panel-body">
+                   <img src="{{event.event_image.url}}" 
+                        class="img-circle" style="width:40%;height:40%;" alt="Image">
+                    </div>
+                <div class="panel-footer">
+                  <input type="hidden" name="event_id"
+                  value="{{event.id}}"/>
+                    Price {{event.ticekt_amount}} <br/>
+                    Date  {{event.Date}}  
+                    <br/>
+                    person<select name="person">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      </select>
+                    <button class="button btn-primary" type="submit">Book Event</button>
+                    
+                </div>
+              </div>
+            
+            </div>    
+        
+    </div>
+</center>
+</form>
+  </div><br>
+  
+{%endblock%}
